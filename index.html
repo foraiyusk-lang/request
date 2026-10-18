@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ヨロズマート 2015年開店時の商品</title>
+<style>
+body{font-family:sans-serif;margin:0 auto;max-width:960px;padding:16px;background:#fffdf5;color:#222}
+h1{font-size:1.4rem}h2{font-size:1.1rem;border-left:6px solid #e60012;padding-left:8px;margin-top:2rem}
+.note{background:#fff3cd;padding:10px 14px;border-radius:6px;font-size:.9rem}
+.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.shop img{width:100%;border-radius:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;text-align:center}
+.card img{width:100%;height:160px;object-fit:contain}
+.name{font-size:.9rem;margin:6px 0;min-height:2.6em}
+.price{font-weight:bold;color:#c00;font-size:1.05rem}
+.price small{color:#555;font-weight:normal}
+footer{margin-top:2rem;font-size:.8rem;color:#555}
+</style>
+</head>
+<body>
+<h1>妖怪ウォッチ オフィシャルショップ ヨロズマート<br>2015年10月23日 開店時の商品</h1>
+<p class="note">開店時の取扱いは約1,200アイテムでした。ここに載せているのは、開店前の公式発表(2015年10月)で「オリジナル商品＆取扱い商品の一部」として紹介された商品です。<strong>全1,200アイテムの一覧ではありません</strong>。価格は税込です(元祖まんじゅう・本家まんじゅうだけは、出典に税込の表記がありません)。</p>
+
+<h2>店舗(アーバンドック ららぽーと豊洲 センターポート3F)</h2>
+<div class="shop">
+<img src="images/613757.jpg" alt="ヨロズマート店頭イメージ">
+<img src="images/613758.jpg" alt="ヨロズマート店内イメージ">
+</div>
+
+<h2>紹介された商品(15点)</h2>
+<div class="grid" id="grid"></div>
+
+<h2>鬼時間限定商品</h2>
+<div class="grid" id="oni"></div>
+
+<h2>開店記念の来店特典(非売品)</h2>
+<div class="grid" id="gift"></div>
+
+<footer>
+出典: <a href="https://www.inside-games.jp/article/2015/10/15/92087.html">インサイド</a> /
+<a href="https://dengekionline.com/elem/000/001/139/1139467">電撃オンライン</a> /
+<a href="https://www.4gamer.net/games/297/G029744/20151015020/">4Gamer</a>。
+画像は上記記事の掲載画像で、権利は各権利者に帰属します。公式サイト: youkai-world.com/yorozumart/
+</footer>
+<script>
+const items=[
+["613759","DX 等身大おすわりぬいぐるみだニャン(ジバニャン)","16,200円"],
+["613760","DX くったりぬいぐるみだニャン(ニャン騎士)","1,598円"],
+["613761","DX くったりぬいぐるみだニャン(ニャン魔女)","1,598円"],
+["613762","元祖まんじゅう","1,296円"],
+["613763","本家まんじゅう","1,296円"],
+["613764","DX くったりぬいぐるみだニャン L(B ジバニャン)","2,138円"],
+["613765","DX くったりぬいぐるみだニャン L(B コマさん)","2,138円"],
+["613766","ブシニャンの刀(極長木目洋菓子)","1,296円"],
+["613767","妖怪パッド型シリコンカバー for iPhone 6","3,024円"],
+["613768","コマさんのほっぺ","1,080円"],
+["613769","ニャポニカ学習帳","270円"],
+["613770","ハロウィンキャンディ","540円"],
+["613771","パスケースだニャン(ジバニャン / コマさん)","1,620円"],
+["613772","MONO 消しゴム","194円"],
+["613773","ポストカード","216円"]
+];
+const oni=[["613774","DX くったりぬいぐるみだニャン L(赤鬼)","2,138円"]];
+const gift=[["613775","妖怪メダルバスターズ 日ノ神 Bメダル(中学生以下の来店者に各日先着1,000名)","無料"]];
+const card=([id,n,p])=>`<div class="card"><img src="images/${id}.jpg" alt="${n}" loading="lazy"><div class="name">${n}</div><div class="price">${p}${p==="無料"?"":" <small>(税込)</small>"}</div></div>`;
+document.getElementById("grid").innerHTML=items.map(card).join("");
+document.getElementById("oni").innerHTML=oni.map(card).join("");
+document.getElementById("gift").innerHTML=gift.map(card).join("");
+</script>
+</body>
+</html>
