@@ -21,7 +21,7 @@ footer{margin-top:2rem;font-size:.8rem;color:#555}
 </head>
 <body>
 <h1>妖怪ウォッチ オフィシャルショップ ヨロズマート<br>2015年10月23日 開店時の商品</h1>
-<p class="note">開店時の取扱いは約1,200アイテムでした。ここに載せているのは、開店前の公式発表(2015年10月)で「オリジナル商品＆取扱い商品の一部」として紹介された商品です。<strong>全1,200アイテムの一覧ではありません</strong>。価格は税込です(元祖まんじゅう・本家まんじゅうだけは、出典に税込の表記がありません)。</p>
+<p class="note">開店時の取扱いは約1,200アイテムでした。ここに載せているのは、開店前の公式発表(2015年10月)で紹介された商品と、開店後の店内レポートで価格が確認できた商品です。<strong>全1,200アイテムの一覧ではありません</strong>(当時の公式サイトのアーカイブが取得できず、全件リストは入手できていません)。価格は税込です(元祖まんじゅう・本家まんじゅうだけは、出典に税込の表記がありません)。</p>
 
 <h2>店舗(アーバンドック ららぽーと豊洲 センターポート3F)</h2>
 <div class="shop">
@@ -32,16 +32,26 @@ footer{margin-top:2rem;font-size:.8rem;color:#555}
 <h2>紹介された商品(15点)</h2>
 <div class="grid" id="grid"></div>
 
+<h2>店内レポートで価格を確認できた商品(4点)</h2>
+<div class="grid" id="report"></div>
+
 <h2>鬼時間限定商品</h2>
 <div class="grid" id="oni"></div>
 
 <h2>開店記念の来店特典(非売品)</h2>
 <div class="grid" id="gift"></div>
 
+<h2>価格が出典に載っていない商品(店内写真・参考)</h2>
+<p class="note">以下は店内で確認できたジャンルの写真です。価格は出典に記載がないため載せていません。</p>
+<div class="grid" id="noprice"></div>
+
 <footer>
 出典: <a href="https://www.inside-games.jp/article/2015/10/15/92087.html">インサイド</a> /
 <a href="https://dengekionline.com/elem/000/001/139/1139467">電撃オンライン</a> /
-<a href="https://www.4gamer.net/games/297/G029744/20151015020/">4Gamer</a>。
+<a href="https://www.4gamer.net/games/297/G029744/20151015020/">4Gamer</a> /
+<a href="https://www.famitsu.com/news/201510/15090791.html">ファミ通.com</a> /
+<a href="https://toyosu.tokyo/news/yokai-watch-yorozumart-kokai/">豊洲タウン情報(toyosu.tokyo)</a>(店内写真。値札の読み取りを含む)。
+開店記念の来店特典として、1,000円(税込)購入ごとにヨロズマート限定ステッカー(全8種)も配布されていました(ファミ通.com)。
 画像は上記記事の掲載画像で、権利は各権利者に帰属します。公式サイト: youkai-world.com/yorozumart/
 </footer>
 <script>
@@ -62,10 +72,25 @@ const items=[
 ["613772","MONO 消しゴム","194円"],
 ["613773","ポストカード","216円"]
 ];
+const report=[
+["toyosu-462","妖怪大辞典 妖怪メダルクッキー 第1巻","1,080円"],
+["toyosu-915","妖怪すくいだニャン(ミニソフビ3個を選ぶ)","648円"],
+["toyosu-138a","iPhone6カスタムカバー ウエスタン(値札の写真)","2,678円"],
+["toyosu-138b","NEW3DSLL対応タッチペン2 カラフル柄(値札の写真)","540円"]
+];
+const noprice=[
+["toyosu-363","ハロウィン限定商品の売り場","価格記載なし"],
+["toyosu-244","トートバッグ","価格記載なし"],
+["toyosu-284","Tシャツ","価格記載なし"],
+["toyosu-661","スリッパ・小物入れ","価格記載なし"],
+["toyosu-633","カベデコ(壁用ステッカー)","価格記載なし"]
+];
 const oni=[["613774","DX くったりぬいぐるみだニャン L(赤鬼)","2,138円"]];
 const gift=[["613775","妖怪メダルバスターズ 日ノ神 Bメダル(中学生以下の来店者に各日先着1,000名)","無料"]];
-const card=([id,n,p])=>`<div class="card"><img src="images/${id}.jpg" alt="${n}" loading="lazy"><div class="name">${n}</div><div class="price">${p}${p==="無料"?"":" <small>(税込)</small>"}</div></div>`;
+const card=([id,n,p])=>`<div class="card"><img src="images/${id}.jpg" alt="${n}" loading="lazy"><div class="name">${n}</div><div class="price">${p}${/^[0-9,]+円$/.test(p)?" <small>(税込)</small>":""}</div></div>`;
 document.getElementById("grid").innerHTML=items.map(card).join("");
+document.getElementById("report").innerHTML=report.map(card).join("");
+document.getElementById("noprice").innerHTML=noprice.map(card).join("");
 document.getElementById("oni").innerHTML=oni.map(card).join("");
 document.getElementById("gift").innerHTML=gift.map(card).join("");
 </script>
